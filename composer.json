@@ -1,0 +1,25 @@
+{
+	"name": "egroupware/webauthn",
+	"description": "EGroupware WebAuthn authentication",
+	"type": "egroupware-app",
+	"homepage": "https://www.egroupware.org/",
+	"license": "EPL",
+	"authors": [
+        {
+            "name": "Ralf Becker",
+            "email": "rb@egroupware.org"
+        }
+    ],
+    "require": {
+		"web-auth/webauthn-lib": "^2.0",
+		"symfony/psr-http-message-bridge": "^1.2",
+		"ramsey/uuid": "^3.8"
+	},
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "EGroupware\\WebAuthn\\": "src/"
+        }
+    }
+}
