@@ -17,7 +17,7 @@ use Webauthn\PublicKeyCredentialUserEntity;
 
 class PubkeyCredentialsRepo implements PublicKeyCredentialSourceRepository
 {
-	protected $path = '/var/lib/egroupware/default/files/webauthn/repo.json';
+	protected $path = '/tmp/pubkey-repo.json';
 
     public function findOneByCredentialId(string $publicKeyCredentialId): ?PublicKeyCredentialSource
 	{

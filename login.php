@@ -91,7 +91,8 @@ header('Content-Type: text/html');
                         userHandle: data.response.userHandle ? arrayToBase64String(new Uint8Array(data.response.userHandle)) : null
                     }
                 };
-                window.location = '/egroupware/webauthn/login_response.php?data='+btoa(JSON.stringify(publicKeyCredential));
+                window.location = window.location.pathname.replace('login.php', 'login_response.php')+
+					'?data='+btoa(JSON.stringify(publicKeyCredential));
             }, error => {
                 console.log(error); // Example: timeout, interaction refused...
             });

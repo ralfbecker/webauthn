@@ -122,7 +122,8 @@ $_SESSION['publicKeyCredentialCreationOptions'] = serialize($publicKeyCredential
                         attestationObject: arrayToBase64String(new Uint8Array(data.response.attestationObject))
                     }
                 };
-                window.location = '/egroupware/webauthn/registration_response.php?data='+btoa(JSON.stringify(publicKeyCredential));
+                window.location = window.location.pathname.replace('register.php', 'register_response.php')+
+					'?data='+btoa(JSON.stringify(publicKeyCredential));
             }, function (error) {
                 console.log(error); // Example: timeout, interaction refused...
             });

@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 include __DIR__.'/vendor/autoload.php';
-include dirname(__DIR__).'/vendor/autoload.php';
 
 use CBOR\Decoder;
 use CBOR\OtherObject\OtherObjectManager;
