@@ -59,7 +59,6 @@ header('Content-Type: text/html');
         <title>Login</title>
     </head>
     <body>
-    <script src="js/helpers.js" type="application/javascript"></script>
     <script>
         const publicKey = <?php echo $encodedOptions; ?>;
 

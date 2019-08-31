@@ -57,7 +57,6 @@ $_SESSION['publicKeyCredentialCreationOptions'] = $encodedOptions;
     <title>Request</title>
 </head>
 <body>
-<script src="js/helpers.js" type="application/javascript"></script>
 <script>
     const publicKey = <?php echo $encodedOptions; ?>;
 
