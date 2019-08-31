@@ -11,21 +11,21 @@
 namespace EGroupware\WebAuthn;
 
 //use EGroupware\Api;
-use Webauthn\PublicKeyCredentialSourceRepository;
+use Webauthn\PublicKeyCredentialSourceRepository as PublicKeyCredentialSourceRepositoryInterface;
 use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialUserEntity;
 
-class PubkeyCredentialsRepo implements PublicKeyCredentialSourceRepository
+class PublickeyCredentialSourceRepository implements PublicKeyCredentialSourceRepositoryInterface
 {
-	protected $path = '/tmp/pubkey-repo.json';
+	private $path = '/tmp/pubkey-repo.json';
 
     public function findOneByCredentialId(string $publicKeyCredentialId): ?PublicKeyCredentialSource
 	{
 		$data = $this->read();
-		error_log(__METHOD__."('$publicKeyCredentialId') returning ".json_encode($data[base64_encode($publicKeyCredentialId)]));
-		if (isset($data[base64_encode($publicKeyCredentialId)]))
-		{
-			return PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)]);
+        if (isset($data[base64_encode($publicKeyCredentialId)]))
+        {
+            error_log(__METHOD__."('$publicKeyCredentialId') returning ".json_encode($data[base64_encode($publicKeyCredentialId)]));
+            return PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)]);
 		}
 		return null;
 	}
@@ -56,7 +56,7 @@ class PubkeyCredentialsRepo implements PublicKeyCredentialSourceRepository
 		$this->write($data);
 	}
 
-	protected function read()
+	private function read(): array
 	{
 		if (file_exists($this->path))
 		{
@@ -65,11 +65,13 @@ class PubkeyCredentialsRepo implements PublicKeyCredentialSourceRepository
 		return [];
 	}
 
-	protected function write(array $data)
+	private function write(array $data): void
 	{
 		if (!file_exists($this->path))
 		{
-			@mkdir(dirname($this->path), 0700, true);
+            if (!mkdir($concurrentDirectory = dirname($this->path), 0700, true) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
 		}
 		file_put_contents($this->path, json_encode($data), LOCK_EX);
 	}

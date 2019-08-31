@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3490a1ac69e55b37ebaa34766da1b23f",
+    "content-hash": "507148b1af33d6d85d342988d857bf53",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1058,7 +1058,7 @@
         },
         {
             "name": "web-auth/cose-lib",
-            "version": "v2.1.2",
+            "version": "v2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/cose-lib.git",
@@ -1117,7 +1117,7 @@
         },
         {
             "name": "web-auth/metadata-service",
-            "version": "v2.1.2",
+            "version": "v2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-metadata-service.git",
@@ -1171,16 +1171,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "v2.1.2",
+            "version": "v2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "aa55b71b642ed33392cfd179c5751907f9afa4ba"
+                "reference": "110dae68d3c9f3bacfcbb5e04425a1728d11eecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/aa55b71b642ed33392cfd179c5751907f9afa4ba",
-                "reference": "aa55b71b642ed33392cfd179c5751907f9afa4ba",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/110dae68d3c9f3bacfcbb5e04425a1728d11eecb",
+                "reference": "110dae68d3c9f3bacfcbb5e04425a1728d11eecb",
                 "shasum": ""
             },
             "require": {
@@ -1193,6 +1193,7 @@
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0",
+                "ramsey/uuid": "^3.8",
                 "spomky-labs/base64url": "^2.0",
                 "spomky-labs/cbor-php": "^1.0.2",
                 "web-auth/cose-lib": "self.version",
@@ -1239,7 +1240,7 @@
                 "fido",
                 "webauthn"
             ],
-            "time": "2019-08-29T12:10:50+00:00"
+            "time": "2019-08-31T07:38:18+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
