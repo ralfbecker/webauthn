@@ -15,7 +15,7 @@ use Webauthn\PublicKeyCredentialSourceRepository as PublicKeyCredentialSourceRep
 use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialUserEntity;
 
-class PublickeyCredentialSourceRepository implements PublicKeyCredentialSourceRepositoryInterface
+class PublicKeyCredentialSourceRepository implements PublicKeyCredentialSourceRepositoryInterface
 {
 	private $path = '/tmp/pubkey-repo.json';
 

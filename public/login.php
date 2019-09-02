@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 include __DIR__.'/../vendor/autoload.php';
 
-use EGroupware\WebAuthn\PublickeyCredentialSourceRepository;
+use EGroupware\WebAuthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialUserEntity;
@@ -12,7 +12,7 @@ use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\Server;
 
 // Credential Repository
-$publicKeyCredentialSourceRepository = new PublickeyCredentialSourceRepository();
+$publicKeyCredentialSourceRepository = new PublicKeyCredentialSourceRepository();
 
 // RP Entity
 $rpEntity = new PublicKeyCredentialRpEntity(
@@ -36,7 +36,7 @@ $userEntity = new PublicKeyCredentialUserEntity(
     null                                    //Icon
 );
 
-$repo = new PublickeyCredentialSourceRepository();
+$repo = new PublicKeyCredentialSourceRepository();
 $registeredPublicKeyCredentialSources = $repo->findAllForUserEntity($userEntity);
 $registeredPublicKeyCredentialDescriptors = array_map(static function(PublicKeyCredentialSource $item) {
     return $item->getPublicKeyCredentialDescriptor();

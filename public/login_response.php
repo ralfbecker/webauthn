@@ -5,7 +5,7 @@ declare(strict_types=1);
 include __DIR__.'/../vendor/autoload.php';
 
 use Zend\Diactoros\ServerRequestFactory;
-use EGroupware\WebAuthn\PublickeyCredentialSourceRepository;
+use EGroupware\WebAuthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\PublicKeyCredentialUserEntity;
@@ -21,7 +21,7 @@ $publicKeyCredentialRequestOptions =  PublicKeyCredentialRequestOptions::createF
 error_log("PublicKeyCredentialRequestOptions from session=".json_encode($publicKeyCredentialRequestOptions));
 
 // Credential Repository
-$publicKeyCredentialSourceRepository = new PublickeyCredentialSourceRepository();
+$publicKeyCredentialSourceRepository = new PublicKeyCredentialSourceRepository();
 
 // RP Entity
 $rpEntity = new PublicKeyCredentialRpEntity(

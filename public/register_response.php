@@ -5,7 +5,7 @@ declare(strict_types=1);
 include __DIR__.'/../vendor/autoload.php';
 
 use Zend\Diactoros\ServerRequestFactory;
-use EGroupware\WebAuthn\PublickeyCredentialSourceRepository;
+use EGroupware\WebAuthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\Server;
@@ -25,7 +25,7 @@ $data = base64_decode($_GET['data']);
 error_log("data from request=$data");
 
 // Credential Repository
-$publicKeyCredentialSourceRepository = new PublickeyCredentialSourceRepository();
+$publicKeyCredentialSourceRepository = new PublicKeyCredentialSourceRepository();
 
 // RP Entity
 $rpEntity = new PublicKeyCredentialRpEntity(
