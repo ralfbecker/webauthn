@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 include __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
-use Symfony\Component\HttpFoundation\Request;
+use Zend\Diactoros\ServerRequestFactory;
 use EGroupware\WebAuthn\PublickeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
@@ -44,8 +43,7 @@ $server = new Server(
 
 try {
     // We init the PSR7 Request object
-    $symfonyRequest = Request::createFromGlobals();
-    $psr7Request = (new DiactorosFactory())->createRequest($symfonyRequest);
+    $psr7Request = ServerRequestFactory::fromGlobals();
 
     // Check the response against the request
     $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse($data, $publicKeyCredentialCreationOptions, $psr7Request);
